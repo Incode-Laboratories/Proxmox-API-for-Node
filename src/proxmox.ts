@@ -8,7 +8,6 @@ export type Proxmox = ReturnType<typeof proxmox>;
 
 export default function proxmox(config: ProxmoxClientConfig) {
   const apiURL = `${config.endpoint.protocol}//${config.endpoint.hostname}:${config.endpoint.port}${config.endpoint.pathname}api2/json`;
-  console.log(apiURL);
 
   const token = config.api
 

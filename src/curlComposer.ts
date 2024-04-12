@@ -102,7 +102,6 @@ export default class curlCom {
 function curl(method: string, endpoint: string, headers: OutgoingHttpHeaders, data: string, callback: Callback): Promise<void> {
   const addr = new URL(endpoint)
   return new Promise((resolve)=>{
-    console.log(endpoint)
     const request = https.request(addr, {
       headers,
       method,
@@ -111,7 +110,6 @@ function curl(method: string, endpoint: string, headers: OutgoingHttpHeaders, da
       let data = "";
       res.on('data', (chunk) => { data += chunk });
       res.on('end', () => {
-        console.log(res.statusCode, res.headers);
         if (res.statusCode != 200) {
           callback(new Error("Status code " + res.statusCode), data);
           resolve()
